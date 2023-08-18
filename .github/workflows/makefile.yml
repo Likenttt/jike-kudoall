@@ -1,0 +1,40 @@
+name: Makefile CI
+
+on:
+  push:
+    # branches: [ master ]
+    tags:
+      - '*'
+  # pull_request:
+    # branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Build Firefox
+      run: make build.firefox
+      
+    - name: Build Chrome
+      run: make build.chrome
+    
+    - name: Upload a Chrome Artifact
+      uses: actions/upload-artifact@v2.3.1
+      with:
+        name: kudoall-chrome.zip
+        path: build/artefacts/kudoall-chrome.zip
+      
+    - name: Upload a Firefox Artifact
+      uses: actions/upload-artifact@v2.3.1
+      with:
+        name: kudoall-firefox.zip
+        path: build/artefacts/kudoall-firefox.zip
+        
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "build/artefacts/kudoall-chrome.zip,build/artefacts/kudoall-firefox.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
