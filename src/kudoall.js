@@ -104,7 +104,7 @@ const execute = () => {
 
   if (messageButton) {
     const button = document.createElement("div");
-    button.className = "flex items-center justify-center w-5 h-5";
+    button.className = "flex items-center justify-center w-5 h-5 fNhiOc";
     button.style.transform = "none";
     button.style.marginRight = "15px";
 
