@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "即刻一键点赞",
-	"version": "0.1",
+	"version": "0.2",
 	"description": "一键点赞传播爱",
 	"default_locale": "en",
 	"icons": {
