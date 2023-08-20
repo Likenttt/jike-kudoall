@@ -150,6 +150,7 @@ let loaded = false;
 window.onload = function () {
   var observer = new MutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
+      console.log(mutation);
       if (
         !loaded &&
         mutation.type === "childList" &&
